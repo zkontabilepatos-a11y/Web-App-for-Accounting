@@ -1,11 +1,18 @@
-import React from 'react';
+import { FC } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavigationMenu from "./components/NavigationMenu";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 
-export const App: React.FC = () => {
+const App: FC = () => {
   return (
-    <div>
-      <h1>Accounting Dashboard</h1>
-      <p>Welcome to the accounting app.</p>
-    </div>
+    <BrowserRouter>
+      <NavigationMenu />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
